@@ -15,8 +15,11 @@ class Banco:
     def sacar(self,pegunta):
 
         if self.status == True:
-            if self.saldo <=0:
-               self.saldo = self.saldo - pegunta
+          if pegunta > self.saldo:
+               print("Saldo insuficiene para esse sague!")
+          else:
+               if self.saldo <=0:
+                  self.saldo = self.saldo - pegunta
 
         else:
             print("Conta desativada!")
@@ -44,7 +47,7 @@ class Banco:
 
 pessoa = Banco ("Sanderson", "poupança", 81999710140)
 pessoa.conta_ativa()
-pessoa.sacar(100)
+pessoa.sacar(120)
 pessoa.verificar()
 pessoa.depositar(500)
 pessoa.desativar()
